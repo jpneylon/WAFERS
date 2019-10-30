@@ -1,5 +1,5 @@
 body {
-   font-family: trebuchet;
+   font-family: tahoma;
    color:#282828;
    margin: 0px;
    vertical-align: middle;
@@ -9,4 +9,12 @@ body {
   background: linear-gradient(-90deg, #330867, #16C0B0);
   height: 30px;
   margin-bottom: 1px;
+}
+
+h1 {
+  text-align: center;
+  background: -webkit-linear-gradient(0deg, #330867, #30CFD0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
