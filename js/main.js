@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#app-wafers',
+  el: 'app-wafers',
   data: {
     message: 'Container for Wafers'
   }
