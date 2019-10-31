@@ -1,7 +1,7 @@
 body {
    font-family: tahoma;
    color:#282828;
-   margin: 0px;
+   margin: 10px;
    vertical-align: middle;
  }
 
@@ -19,11 +19,18 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+h2, h3 {
+  text-align: center;
+}
+
+p {
+  width: 97%;
+}
+
 table {
   border: 2px solid #330867;
   border-radius: 3px;
   background-color: #fff;
-  margin: 10px;
   width: 97%;
 }
 
@@ -41,4 +48,11 @@ button {
   height: 40px;
   width: 100%;
   font-size: 14px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

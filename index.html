@@ -15,6 +15,85 @@
       <p>&nbsp;</p>
 
       <div id="app">
+        <div>
+            <table>
+                <tr>
+                    <td>Patient Name:</td>
+                    <td><input v-model="patient" placeholder="Enter Patient Name"></td>
+                </tr>
+                <tr>
+                    <td>Patient MRN:</td>
+                    <td><input v-model="mrn" placeholder="Enter MRN"></td>
+                </tr>
+                <!--
+               <tr>
+                    <td>Rx Dose:</td>
+                    <td><input v-model.number="rxdose" type="number" placeholder="Enter Rx Dose in cGy"></td>
+                </tr>
+                <tr>
+                    <td># Fractions</td>
+                    <td><input v-model.number="fractions" type="number" placeholder="Enter # of Fractions"></td>
+                </tr>
+              -->
+                <tr>
+                    <td>Request Date:</td>
+                    <td><vuejs-datepicker name="update_rxdate" :value="rxdate" v-model="rxdate" format="d MMMM yyyy"></vuejs-datepicker></td>
+                </tr>
+                <tr>
+                    <td>Action Date:</td>
+                    <td><vuejs-datepicker name="update_txdate" :value="txdate" v-model="txdate" format="d MMMM yyyy"></vuejs-datepicker></td>
+                </tr>
+                <tr>
+                  <td>Physician</td>
+                  <td>
+                    <select v-model="physician" placeholder="Select the Attending Physician">
+                        <option disabled value="">Select the Attending Physician</option>
+                        <option v-for="doc in docs" v-bind:value="doc.name">
+                            {{ doc.name }}
+                        </option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Physicist</td>
+                  <td>
+                    <select v-model="physicist" placeholder="Select the Physicist">
+                        <option disabled value="">Select the Physicist</option>
+                        <option v-for="nerd in nerds" v-bind:value="nerd.name">
+                            {{ nerd.name }}
+                        </option>
+                    </select>
+                  </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>&nbsp;</p>
+        <img src='data/cohlogo.jpg'/>
+        <h2>Special Medical Physics Consult Report</h2>
+        <h3>Radiation Oncology</h3>
+        <h3>City of Hope National Medical Center</h3>
+
+        <p>&nbsp;</p>
+        <p>Date: <strong>{{ rxdate }}</strong></p>
+        <p>To: Radiation Physicist</p>
+        <p>Request From: <strong>{{ physician }}</strong>, MD</p>
+        <p>Patient Name: <strong>{{ patient }}</strong></p>
+        <p>MRN: <strong>{{ mrn }}</strong></p>
+        <p>Purpose:</p>
+
+        <p>&nbsp;</p>
+
+        <p>Date: <strong>{{ txdate }}</strong></p>
+        <p>To: <strong>{{ physician }}</strong>, MD</p>
+        <p>Purpose:</p>
+
+        <p>&nbsp;</p>
+
+        <h4>{{ physicist }}, PhD, DABR</h4>
+        <h4>Radiation Physicist</h4>
+
+        <div>
           <table>
             <tr>
               <td>
@@ -22,6 +101,7 @@
               </td>
             </tr>
           </table>
+        </div>
 
       </div>
 
