@@ -17,7 +17,7 @@
      <p>&nbsp;</p>
      <div id="app">
 
-       <p>Date: <strong>{{ rxdate }}</strong></p>
+       <p>Date: <strong>{{ rxdate.toDateString() }}</strong></p>
        <p>To: Radiation Physicist</p>
        <p>Request From: <strong>{{ physician.firstname }} {{ physician.lastname }}</strong>, MD</p>
        <p>Patient Name: <strong>{{ patient }}</strong></p>
@@ -26,7 +26,7 @@
 
        <p>&nbsp;</p>
 
-       <p>Date: <strong>{{ txdate }}</strong></p>
+       <p>Date: <strong>{{ txdate.toDateString() }}</strong></p>
        <p>To: <strong>{{ physician.firstname }} {{ physician.lastname }}</strong>, MD</p>
        <p>Purpose:</p>
 
