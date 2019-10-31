@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport"/>
@@ -12,46 +13,48 @@
      <div class="header-bar"></div>
 
      <p>&nbsp;</p>
-     <div>
-         <table>
-             <tr>
-                 <td>Patient Name:</td>
-                 <td><input v-model="patient" placeholder="Enter Patient Name"></td>
-             </tr>
-             <tr>
-                 <td>Patient MRN:</td>
-                 <td><input v-model="mrn" placeholder="Enter MRN"></td>
-             </tr>
-            <!--
-            <tr>
-                 <td>Rx Dose:</td>
-                 <td><input v-model.number="rxdose" type="number" placeholder="Enter Rx Dose in cGy"></td>
-             </tr>
-             <tr>
-                 <td># Fractions</td>
-                 <td><input v-model.number="fractions" type="number" placeholder="Enter # of Fractions"></td>
-             </tr>
-             -->
-             <tr>
-                 <td>Request Date:</td>
-                 <td><vuejs-datepicker name="update_sim" :value="rxdate"></vuejs-datepicker></td>
-             </tr>
-             <tr>
-                 <td>Report Date:</td>
-                 <td><vuejs-datepicker name="update_tx" :value="txdate"></vuejs-datepicker></td>
-             </tr>
-         </table>
-     </div>
+     <div id="app">
+       <div>
+           <table>
+               <tr>
+                   <td>Patient Name:</td>
+                   <td><input v-model="patient" placeholder="Enter Patient Name"></td>
+               </tr>
+               <tr>
+                   <td>Patient MRN:</td>
+                   <td><input v-model="mrn" placeholder="Enter MRN"></td>
+               </tr>
+              <!--
+              <tr>
+                   <td>Rx Dose:</td>
+                   <td><input v-model.number="rxdose" type="number" placeholder="Enter Rx Dose in cGy"></td>
+               </tr>
+               <tr>
+                   <td># Fractions</td>
+                   <td><input v-model.number="fractions" type="number" placeholder="Enter # of Fractions"></td>
+               </tr>
+               -->
+               <tr>
+                   <td>Request Date:</td>
+                   <td><vuejs-datepicker name="update_rx" :value="rxdate"></vuejs-datepicker></td>
+               </tr>
+               <tr>
+                   <td>Report Date:</td>
+                   <td><vuejs-datepicker name="update_tx" :value="txdate"></vuejs-datepicker></td>
+               </tr>
+           </table>
+       </div>
 
-     <p>&nbsp;</p>
-     <div>
-       <table>
-         <tr>
-           <td>
-               <button onclick="window.location.href = 'index.html'">Return to Wafers HomePage</button>
-           </td>
-         </tr>
-       </table>
+       <p>&nbsp;</p>
+       <div>
+         <table>
+           <tr>
+             <td>
+                 <button onclick="window.location.href = 'index.html'">Return to Wafers HomePage</button>
+             </td>
+           </tr>
+         </table>
+       </div>
      </div>
 
      <script src="js/main.js"></script>
