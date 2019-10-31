@@ -4,8 +4,8 @@
         <meta name="viewport"/>
         <title>WAFERS v0.1 - 2019.10.31</title>
         <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/v-calendar"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <script src="https://unpkg.com/vuejs-datepicker"></script>
    </head>
     <body>
       <div class="header-bar"></div>
@@ -34,22 +34,23 @@
                     <td># Fractions</td>
                     <td><input v-model.number="fractions" type="number" placeholder="Enter # of Fractions"></td>
                 </tr>
-              -->
+
                 <tr>
                     <td>Request Date:</td>
-                    <td><vuejs-datepicker name="update_rxdate" :value="rxdate" v-model="rxdate" format="d MMMM yyyy"></vuejs-datepicker></td>
+                    <td><v-date-picker mode="single" v-model="rxdate"></v-date-picker></td>
                 </tr>
                 <tr>
                     <td>Action Date:</td>
-                    <td><vuejs-datepicker name="update_txdate" :value="txdate" v-model="txdate" format="d MMMM yyyy"></vuejs-datepicker></td>
+                    <td><v-date-picker mode="single" v-model="txdate"></v-date-picker></td>
                 </tr>
+                -->
                 <tr>
                   <td>Physician</td>
                   <td>
                     <select v-model="physician" placeholder="Select the Attending Physician">
                         <option disabled value="">Select the Attending Physician</option>
-                        <option v-for="doc in docs" v-bind:value="doc.name">
-                            {{ doc.name }}
+                        <option v-for="doc in docs" v-bind:value="doc">
+                            {{ doc.lastname }}, {{ doc.firstname}}
                         </option>
                     </select>
                   </td>
@@ -59,8 +60,8 @@
                   <td>
                     <select v-model="physicist" placeholder="Select the Physicist">
                         <option disabled value="">Select the Physicist</option>
-                        <option v-for="nerd in nerds" v-bind:value="nerd.name">
-                            {{ nerd.name }}
+                        <option v-for="nerd in nerds" v-bind:value="nerd">
+                            {{ nerd.lastname }}, {{ nerd.firstname }}
                         </option>
                     </select>
                   </td>
@@ -77,7 +78,7 @@
         <p>&nbsp;</p>
         <p>Date: <strong>{{ rxdate }}</strong></p>
         <p>To: Radiation Physicist</p>
-        <p>Request From: <strong>{{ physician }}</strong>, MD</p>
+        <p>Request From: <strong>{{ physician.firstname }} {{ physician.lastname }}, MD</strong></p>
         <p>Patient Name: <strong>{{ patient }}</strong></p>
         <p>MRN: <strong>{{ mrn }}</strong></p>
         <p>Purpose:</p>
@@ -85,12 +86,12 @@
         <p>&nbsp;</p>
 
         <p>Date: <strong>{{ txdate }}</strong></p>
-        <p>To: <strong>{{ physician }}</strong>, MD</p>
+        <p>To: <strong>{{ physician.firstname }} {{ physician.lastname }}, MD</strong></p>
         <p>Purpose:</p>
 
         <p>&nbsp;</p>
 
-        <h4>{{ physicist }}, PhD, DABR</h4>
+        <h4>{{ physicist.firstname }} {{ physicist.lastname }}, PhD, DABR</h4>
         <h4>Radiation Physicist</h4>
 
         <div>
