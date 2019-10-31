@@ -4,8 +4,8 @@
         <meta name="viewport"/>
         <title>WAFERS v0.1 - 2019.10.31</title>
         <script src="https://unpkg.com/vue"></script>
-        <script src="https://unpkg.com/v-calendar"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="https://unpkg.com/vuejs-datepicker"></script>
    </head>
     <body>
       <div class="header-bar"></div>
@@ -34,16 +34,15 @@
                     <td># Fractions</td>
                     <td><input v-model.number="fractions" type="number" placeholder="Enter # of Fractions"></td>
                 </tr>
-
+              -->
                 <tr>
                     <td>Request Date:</td>
-                    <td><v-date-picker mode="single" v-model="rxdate"></v-date-picker></td>
+                    <td><vuejs-datepicker name="update_rxdate" :value="rxdate" v-model="rxdate" format="d MMMM yyyy"></vuejs-datepicker></td>
                 </tr>
                 <tr>
                     <td>Action Date:</td>
-                    <td><v-date-picker mode="single" v-model="txdate"></v-date-picker></td>
+                    <td><vuejs-datepicker name="update_txdate" :value="txdate" v-model="txdate" format="d MMMM yyyy"></vuejs-datepicker></td>
                 </tr>
-                -->
                 <tr>
                   <td>Physician</td>
                   <td>
@@ -76,7 +75,7 @@
         <h3>City of Hope National Medical Center</h3>
 
         <p>&nbsp;</p>
-        <p>Date: <strong>{{ rxdate }}</strong></p>
+        <p>Date: <strong>{{ rxdate.toDateString() }}</strong></p>
         <p>To: Radiation Physicist</p>
         <p>Request From: <strong>{{ physician.firstname }} {{ physician.lastname }}, MD</strong></p>
         <p>Patient Name: <strong>{{ patient }}</strong></p>
@@ -85,7 +84,7 @@
 
         <p>&nbsp;</p>
 
-        <p>Date: <strong>{{ txdate }}</strong></p>
+        <p>Date: <strong>{{ txdate.toDateString() }}</strong></p>
         <p>To: <strong>{{ physician.firstname }} {{ physician.lastname }}, MD</strong></p>
         <p>Purpose:</p>
 

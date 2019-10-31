@@ -1,22 +1,26 @@
+
 var app = new Vue({
   el: '#app',
-
+  components: { vuejsDatepicker },
   data: {
     message: 'Container for Wafers',
     patient: '',
     mrn: '',
     rxdose: '',
     fractions: '',
-    txdate: null,
-    rxdate: null,
+    txdate: new Date(),
+    rxdate: new Date(),
     physician: '',
     physicist: '',
     docs:[
-        {'id':'4','name':'Glaser, Scott'},
-        {'id':'5','name':'Radany, Eric'},
-        {'id':'6','name':'Sampath, Sagus'},
-        {'id':'7','name':'Vora, Nayana'},
-        {'id':'8','name':'Wong, Jeffrey'}
+        {'id':'1','lastname':'Amini','firstname':'Arya'},
+        {'id':'2','lastname':'Chen','firstname':'YiJen'},
+        {'id':'3','lastname':'Dandapani','firstname':'Savita'},
+        {'id':'4','lastname':'Glaser','firstname':'Scott'},
+        {'id':'5','lastname':'Radany','firstname':'Eric'},
+        {'id':'6','lastname':'Sampath','firstname':'Sagus'},
+        {'id':'7','lastname':'Vora','firstname':'Nayana'},
+        {'id':'8','lastname':'Wong','firstname':'Jeffrey'}
       ],
     nerds: [
         {'id':'1','lastname':'Du','firstname':'Dongsu'},
