@@ -3,16 +3,26 @@
     <head>
         <meta name="viewport"/>
         <title>WAFERS v0.1 - 2019.10.31</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://unpkg.com/vue"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="https://unpkg.com/vuejs-datepicker"></script>
    </head>
     <body>
       <div class="header-bar"></div>
       <h1>WAFERS v0.1 - 2019.10.31</h1>
       <div class="header-bar"></div>
 
+      <p>&nbsp;</p>
+
       <div id="app">
-        {{ message }}
+          <table>
+            <tr>
+              <td>
+                  <button onclick="window.location.href = 'spc.html'">Special Physics Report</button>
+              </td>
+            </tr>
+          </table>
+
       </div>
 
       <script src="js/main.js"></script>

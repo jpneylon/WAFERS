@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta name="viewport"/>
+        <title>WAFERS v0.1 - 2019.10.31</title>
+        <script src="https://unpkg.com/vue"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="https://unpkg.com/vuejs-datepicker"></script>
+   </head>
+   <body>
+     <div class="header-bar"></div>
+     <h1>Special Physics Report</h1>
+     <div class="header-bar"></div>
+
+     <p>&nbsp;</p>
+     <div>
+         <table>
+             <tr>
+                 <td>Patient Name:</td>
+                 <td><input v-model="patient" placeholder="Enter Patient Name"></td>
+             </tr>
+             <tr>
+                 <td>Patient MRN:</td>
+                 <td><input v-model="mrn" placeholder="Enter MRN"></td>
+             </tr>
+            <!--
+            <tr>
+                 <td>Rx Dose:</td>
+                 <td><input v-model.number="rxdose" type="number" placeholder="Enter Rx Dose in cGy"></td>
+             </tr>
+             <tr>
+                 <td># Fractions</td>
+                 <td><input v-model.number="fractions" type="number" placeholder="Enter # of Fractions"></td>
+             </tr>
+             -->
+             <tr>
+                 <td>Request Date:</td>
+                 <td><vuejs-datepicker name="update_sim" :value="rxdate"></vuejs-datepicker></td>
+             </tr>
+             <tr>
+                 <td>Report Date:</td>
+                 <td><vuejs-datepicker name="update_tx" :value="txdate"></vuejs-datepicker></td>
+             </tr>
+         </table>
+     </div>
+
+     <p>&nbsp;</p>
+     <div>
+       <table>
+         <tr>
+           <td>
+               <button onclick="window.location.href = 'wafers.html'">Return to Wafers HomePage</button>
+           </td>
+         </tr>
+       </table>
+     </div>
+
+     <script src="js/main.js"></script>
+   </body>
+</html>
