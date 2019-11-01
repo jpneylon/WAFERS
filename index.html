@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta name="viewport"/>
-        <title>WAFERS v0.1 - 2019.10.31</title>
+        <title>WAFERS: Created by Jack Neylon, Phd, DABR (v0.1-2019.10.31)</title>
         <script src="https://unpkg.com/vue"></script>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <script src="https://unpkg.com/vuejs-datepicker"></script>
+        <link rel="stylesheet" type="text/css" media="print" href="css/print.css"/>
    </head>
     <body>
       <div id="app">
-        <small title="Web Applications For Endlessly Repetitive Stuff">WAFERS: Created by Jack Neylon, Phd, DABR</small>
-        <small style="float:right">v0.1 (2019.10.31)</small>
+        <h1 title="Web Applications For Endlessly Repetitive Stuff">WAFERS</h1>
         <div v-show="!showSPC">
           <table>
               <tr>
@@ -53,30 +53,47 @@
                 </td>
               </tr>
           </table>
+
+          <p>&nbsp;</p>
+
+          <table>
+            <tr>
+              <td>
+                  <button @click="showSPC=toggleShow(showSPC)">Special Physics Report</button>
+              </td>
+            </tr>
+          </table>
         </div>
 
-        <p>&nbsp;</p>
-
-        <wafer-spc  v-show="showSPC"
+        <div v-show="showSPC">
+          <table class="no-print">
+            <tr>
+              <td>
+                <button onclick="window.print()">Print SPC Report</button>
+              </td>
+              <td>
+                <button @click="showSPC=toggleShow(showSPC)">Back to WAFERS</button>
+              </td>
+            </tr>
+          </table>
+          <wafer-spc
                     :w_patient="patient"
                     :w_mrn="mrn"
                     :w_physician="physician"
                     :w_physicist="physicist"
                     :w_rxdate="rxdate"
-                    :w_txdate="txdate">
-        </wafer-spc>
-
-        <table>
-          <tr>
-            <td>
-                <button @click="showSPC=toggleShow(showSPC)">Special Physics Report</button>
-            </td>
-          </tr>
-        </table>
+                    :w_txdate="txdate"
+                    id='mySPCwafer'>
+          </wafer-spc>
+        </div>
 
       </div>
 
       <script src="js/main.js"></script>
+
+      <!-- <div class="footer"> -->
+        <!-- <p>WAFERS: Created by Jack Neylon, Phd, DABR (v0.1-2019.10.31)</p> -->
+      <!-- </div> -->
     </body>
 </html>
 
