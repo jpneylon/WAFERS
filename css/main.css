@@ -11,6 +11,15 @@ body {
   margin-bottom: 1px;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: small;
+}
+
 h1 {
   text-align: center;
   background: -webkit-linear-gradient(0deg, #330867, #30CFD0);
@@ -19,19 +28,20 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-h2, h3 {
+h2, h3, h4 {
   text-align: center;
 }
 
 p {
-  width: 97%;
+  width: 100%;
+  font-size: 12px;
 }
 
 table {
   border: 2px solid #330867;
   border-radius: 3px;
   background-color: #fff;
-  width: 97%;
+  width: 100%;
 }
 
 td {
@@ -54,5 +64,5 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  width: 30%;
 }
