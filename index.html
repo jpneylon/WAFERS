@@ -4,14 +4,14 @@
         <meta name="viewport"/>
         <title>WAFERS: Created by Jack Neylon, Phd, DABR (v0.1-2019.10.31)</title>
         <script src="https://unpkg.com/vue"></script>
-        <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <script src="https://unpkg.com/vuejs-datepicker"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <link rel="stylesheet" type="text/css" media="print" href="css/print.css"/>
    </head>
     <body>
       <div id="app">
         <h1 title="Web Applications For Endlessly Repetitive Stuff">WAFERS</h1>
-        <div v-show="!showSPC">
+        <div class="no-print">
           <table>
               <tr>
                   <td>Patient Name:</td>
@@ -53,29 +53,23 @@
                 </td>
               </tr>
           </table>
-
           <p>&nbsp;</p>
+        </div>
 
-          <table>
+        <div v-if="showWAFER > 0">
+          <table class="no-print">
             <tr>
               <td>
-                  <button @click="showSPC=toggleShow(showSPC)">Special Physics Report</button>
+                <button onclick="window.print()">Print Report</button>
+              </td>
+              <td>
+                <button @click="showWAFER=0">Back to WAFERS</button>
               </td>
             </tr>
           </table>
         </div>
 
-        <div v-show="showSPC">
-          <table class="no-print">
-            <tr>
-              <td>
-                <button onclick="window.print()">Print SPC Report</button>
-              </td>
-              <td>
-                <button @click="showSPC=toggleShow(showSPC)">Back to WAFERS</button>
-              </td>
-            </tr>
-          </table>
+        <div v-if="showWAFER === 1">
           <wafer-spc
                     :w_patient="patient"
                     :w_mrn="mrn"
@@ -86,24 +80,32 @@
                     id='mySPCwafer'>
           </wafer-spc>
         </div>
+        <div v-else-if="showWAFER === 2">
+          <wafer-imrt
+                    :w_patient="patient"
+                    :w_mrn="mrn"
+                    :w_physicist="physicist"
+                    :w_txdate="txdate"
+                    id='myIMRTwafer'>
+          </wafer-imrt>
+        </div>
+        <div v-else>
+          <table>
+            <tr>
+              <td>
+                  <button @click="showWAFER=1">Special Physics Report</button>
+              </td>
+              <td>
+                  <button @click="showWAFER=2">IMRT QA Report</button>
+              </td>
+            </tr>
+          </table>
+        </div>
 
       </div>
 
       <script src="js/main.js"></script>
-
-      <!-- <div class="footer"> -->
-        <!-- <p>WAFERS: Created by Jack Neylon, Phd, DABR (v0.1-2019.10.31)</p> -->
-      <!-- </div> -->
+      <script src='js/wafer-spc.js'></script>
+      <script src='js/wafer-imrt.js'></script>
     </body>
 </html>
-
-<!--
-<tr>
-    <td>Rx Dose:</td>
-    <td><input v-model.number="rxdose" type="number" placeholder="Enter Rx Dose in cGy"></td>
-</tr>
-<tr>
-    <td># Fractions</td>
-    <td><input v-model.number="fractions" type="number" placeholder="Enter # of Fractions"></td>
-</tr>
--->
