@@ -51,6 +51,7 @@ Vue.component('wafer-spc', {
   template: `
   <div>
     <div class="no-print">
+      <p>&nbsp;</p>
       <fieldset>
       <legend>Select all that apply:</legend>
       <div v-for="task in tasks">

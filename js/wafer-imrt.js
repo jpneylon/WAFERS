@@ -22,6 +22,7 @@ Vue.component('wafer-imrt', {
       qa_chamber: new Object(),
       qadate: new Date(),
       qa_measurement: 0.0,
+      apply_trs483: false,
       machines: [
        {id: 1,
         chamber: 1,
@@ -36,7 +37,7 @@ Vue.component('wafer-imrt', {
         name:'Tomo 1',
         energy: ['6X']},
        {id: 4,
-        chamber: 3,
+        chamber: 4,
         name:'Tomo 2',
         energy: ['6X']},
       ],
@@ -45,22 +46,26 @@ Vue.component('wafer-imrt', {
          model: 'PTW TN31006',
          serial: 'SN0304',
          factor: 237.3,
-         units: 'cGy/nC'},
+         units: 'cGy/nC',
+         trs483: 1.04},
         {id: 2,
          model: 'Exradin A1SL',
          serial: 'XW040651',
          factor: 55.55,
-         units: 'cGy/nC'},
+         units: 'cGy/nC',
+         trs483: 1.04},
         {id: 3,
          model: 'PTW TN30013',
          serial: '010174',
          factor: 5.384,
-         units: 'cGy/nC'},
+         units: 'cGy/nC',
+         trs483: 1.00},
         {id: 4,
          model: 'PTW TN30013',
          serial: '011070',
          factor: 5.526,
-         units: 'cGy/nC'},
+         units: 'cGy/nC',
+         trs483: 1.00},
       ]
     }
   },
@@ -80,7 +85,11 @@ Vue.component('wafer-imrt', {
       return((273 + temp) * 760 / 295 / pres);
     },
     qa_dose: function() {
-      return(parseFloat(this.qa_chamber.factor) * parseFloat(this.tp_correction) * parseFloat(this.qa_measurement));
+      var icd = 0.01 * parseFloat(this.qa_chamber.factor) * parseFloat(this.tp_correction) * parseFloat(this.qa_measurement);
+      if (this.apply_trs483){
+        icd *= parseFloat(this.qa_chamber.trs483);
+      }
+      return(icd);
     },
     qa_result: function() {
       var diff = parseFloat(this.qa_dose) - parseFloat(this.tps_dose);
@@ -88,9 +97,15 @@ Vue.component('wafer-imrt', {
       return (100.0 * diff);
     }
   },
+  methods: {
+    setChamber: function() {
+      return(this.chambers[this.tx_machine.chamber-1])
+    }
+  },
   template: `
   <div>
     <div class="no-print">
+      <p>&nbsp;</p>
       <fieldset>
       <legend>Please fill out additional information:</legend>
       <table>
@@ -129,7 +144,7 @@ Vue.component('wafer-imrt', {
         <tr>
           <td>Treatment Machine</td>
           <td>
-            <select v-model="tx_machine" placeholder="Select the Treatment Machine">
+            <select v-model="tx_machine" @change="qa_chamber=setChamber()" placeholder="Select the Treatment Machine">
                 <option disabled value="">Select the Treatment Machine</option>
                 <option v-for="mx in machines" v-bind:value="mx">
                     {{ mx.name }}
@@ -166,8 +181,17 @@ Vue.component('wafer-imrt', {
           <td><input v-model="qa_measurement" placeholder="Enter Electrometer Reading"></td>
         </tr>
         <tr>
+          <td>
+            <div title="Appropriate for fields with an MLC aperture <= 1cm diameter. See TRS-483 from the IAEA for more information.">
+              <input type="checkbox" v-model="apply_trs483" id="sfcf">
+              <label for="scfc">Apply a small field correction factor?</label>
+            </div>
+          </td>
+          <td colspan='3'></td>
+        </tr>
+        <tr>
           <td>Enter Any Additional Comments To Be Included In The Report</td>
-          <td colspan='3'><input v-model="comments" placeholder="Enter Comments"></td>
+          <td colspan='3'><input v-model="comments" placeholder="Enter Comments" style="width:100%"></td>
         </tr>
       </table>
       </fieldset>
@@ -202,6 +226,7 @@ Vue.component('wafer-imrt', {
     <p>&nbsp;</p>
     <p>Comments:</p>
     <p>{{comments}}</p>
+    <p v-if="apply_trs483">Small field correction factor of 4% applied to IC reading due to an MLC-defined aperture of 1cm or less in diameter, according to TRS 483 report on small field dosimetry.</p>
 
     <p>&nbsp;</p>
     <hr>
