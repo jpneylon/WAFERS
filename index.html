@@ -56,7 +56,7 @@
           <p>&nbsp;</p>
         </div>
 
-        <div v-if="showWAFER > 0">
+        <div v-show="showWAFER > 0">
           <table class="no-print">
             <tr>
               <td>
@@ -69,7 +69,7 @@
           </table>
         </div>
 
-        <div v-if="showWAFER === 1">
+        <div v-show="showWAFER === 1">
           <wafer-spc
                     :w_patient="patient"
                     :w_mrn="mrn"
@@ -80,7 +80,7 @@
                     id='mySPCwafer'>
           </wafer-spc>
         </div>
-        <div v-else-if="showWAFER === 2">
+        <div v-show="showWAFER === 2">
           <wafer-imrt
                     :w_patient="patient"
                     :w_mrn="mrn"
@@ -89,7 +89,7 @@
                     id='myIMRTwafer'>
           </wafer-imrt>
         </div>
-        <div v-else>
+        <div v-show="showWAFER === 0">
           <table>
             <tr>
               <td>
