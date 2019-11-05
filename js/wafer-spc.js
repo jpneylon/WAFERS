@@ -1,3 +1,5 @@
+// WAFERS: Created by Jack Neylon, Phd, DABR (v0.2-2019.11.05)
+
 Vue.component('wafer-spc', {
   props: {
     w_patient: String,

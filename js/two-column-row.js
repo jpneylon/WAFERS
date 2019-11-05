@@ -1,3 +1,5 @@
+// WAFERS: Created by Jack Neylon, Phd, DABR (v0.2-2019.11.05)
+
 Vue.component('two-column-row', {
   props: ['tcr_label','tcr_value'],
   template: `

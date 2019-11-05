@@ -1,3 +1,5 @@
+// WAFERS: Created by Jack Neylon, Phd, DABR (v0.2-2019.11.05)
+
 var app = new Vue({
   el: '#app',
   components: { vuejsDatepicker },
