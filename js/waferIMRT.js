@@ -102,6 +102,9 @@ Vue.component('wafer-imrt', {
   methods: {
     setChamber: function() {
       return(this.chambers[this.tx_machine.chamber-1])
+    },
+    setEnergy: function() {
+      return(this.tx_machine.energy[0])
     }
   },
   template: `
@@ -146,7 +149,7 @@ Vue.component('wafer-imrt', {
         <tr>
           <td>Treatment Machine</td>
           <td>
-            <select v-model="tx_machine" @change="qa_chamber=setChamber()" placeholder="Select the Treatment Machine">
+            <select v-model="tx_machine" @change="qa_chamber=setChamber(),tx_energy=setEnergy()" placeholder="Select the Treatment Machine">
                 <option disabled value="">Select the Treatment Machine</option>
                 <option v-for="mx in machines" v-bind:value="mx">
                     {{ mx.name }}
@@ -184,12 +187,12 @@ Vue.component('wafer-imrt', {
         </tr>
         <tr>
           <td>
-            <div title="Appropriate for fields with an MLC aperture <= 1cm diameter. See TRS-483 from the IAEA for more information.">
+            <div>
               <input type="checkbox" v-model="apply_trs483" id="sfcf">
               <label for="scfc">Apply a small field correction factor?</label>
             </div>
           </td>
-          <td colspan='3'></td>
+          <td colspan='3'>Appropriate for fields with an MLC aperture <= 1cm diameter. See TRS-483 from the IAEA for more information.</td>
         </tr>
         <tr>
           <td>Enter Any Additional Comments To Be Included In The Report</td>
@@ -218,12 +221,12 @@ Vue.component('wafer-imrt', {
     <p>Room Temperature, T = {{ temperature }} {{ t_unit }}  |  Room Air Pressure, P = {{ pressure }} {{ p_unit }}</p>
 
     <hr>
-    <two-column-row tcr_label="Ion Chamber Calibration Factor, N:" v-bind:tcr_value="qa_chamber.factor"></two-column-row>
+    <two-column-row tcr_label="Ion Chamber Calibration Factor, N =" v-bind:tcr_value="qa_chamber.factor  + ' cGy/nC'"></two-column-row>
     <two-column-row tcr_label="Air Density Correction, Ctp =" v-bind:tcr_value="tp_correction.toFixed(3)"></two-column-row>
-    <two-column-row tcr_label="Cumulative Ion Chamber Reading, Q =" v-bind:tcr_value="qa_measurement"></two-column-row>
-    <two-column-row tcr_label="Measured Dose, D = N x Ctp x Q =" v-bind:tcr_value="qa_dose.toFixed(2)"></two-column-row>
-    <two-column-row tcr_label="Calculated Dose per IMRT Plan (Gy) =" v-bind:tcr_value="tps_dose"></two-column-row>
-    <two-column-row tcr_label="Dose Percent Difference (%) =" v-bind:tcr_value="qa_result.toFixed(2)"></two-column-row>
+    <two-column-row tcr_label="Cumulative Ion Chamber Reading, Q =" v-bind:tcr_value="qa_measurement  + ' nC'"></two-column-row>
+    <two-column-row tcr_label="Measured Dose, D = N x Ctp x Q =" v-bind:tcr_value="qa_dose.toFixed(2) + ' Gy'"></two-column-row>
+    <two-column-row tcr_label="Calculated Dose per IMRT Plan =" v-bind:tcr_value="tps_dose  + ' Gy'"></two-column-row>
+    <two-column-row tcr_label="Dose Percent Difference =" v-bind:tcr_value="qa_result.toFixed(2) + ' %'"></two-column-row>
 
     <p>&nbsp;</p>
     <p>Comments:</p>
