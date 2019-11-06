@@ -56,19 +56,20 @@ Vue.component('wafer-spc', {
       <p>&nbsp;</p>
       <fieldset>
       <legend>Select all that apply:</legend>
-      <div v-for="task in tasks">
-        <input type="checkbox" v-model="task.show" id="task.id">
-        <label for="task.id">{{task.text}}</label>
-      </div>
+      <table>
+        <tr v-for="task in tasks">
+          <td>
+            <input type="checkbox" v-model="task.show" id="task.id">
+            <label for="task.id">{{task.text}}</label>
+          </td>
+        </tr>
+      </table>
       </fieldset>
       <hr>
       <p>&nbsp;</p>
     </div>
 
-    <img src='data/cohlogo.jpg'/>
-    <h3>Special Medical Physics Consult Report</h3>
-    <h4>Radiation Oncology</h4>
-    <h4>City of Hope National Medical Center</h4>
+    <report-header rh_title="Special Medical Physics Consult Report"></report-header>
 
     <p>&nbsp;</p>
     <p>Date: <strong>{{ w_rxdate.toDateString() }}</strong></p>

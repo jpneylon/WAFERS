@@ -204,10 +204,7 @@ Vue.component('wafer-imrt', {
       <p>&nbsp;</p>
     </div>
 
-    <img src='data/cohlogo.jpg'/>
-    <h3>IMRT Plan QA Report</h3>
-    <h4>Radiation Oncology</h4>
-    <h4>City of Hope National Medical Center</h4>
+    <report-header rh_title="IMRT Plan QA Report"></report-header>
 
     <p>&nbsp;</p>
     <two-column-row tcr_label="Patient Name:" v-bind:tcr_value="w_patient"></two-column-row>
