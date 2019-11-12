@@ -45,6 +45,32 @@ table {
   width: 100%;
 }
 
+.muc_table {
+  border: 0px;
+  border-radius: 1px;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  vertical-align: center;
+}
+
+.muc_header {
+  border: 0px;
+  border-radius: 1px;
+  background-color: #fff;
+  width: 100%;
+
+}
+
+.muc_tr {
+  height: 40px;
+    padding: 2px 2px;
+}
+
+tr {
+  height: 20px;
+}
+
 td {
   background-color: #f9f9f9;
   min-width: 1%;
