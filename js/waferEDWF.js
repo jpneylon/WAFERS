@@ -10,13 +10,14 @@ Vue.component('wafer-edwf', {
       tx_field_name: '',
       machines: [
        {id: 1,
-        chamber: 1,
         name:'TrueBeam STX',
         energy: ['6X', '10X']},
        {id: 2,
-        chamber: 2,
         name:'TrueBeam 1',
         energy: ['6X', '10X']},
+       {id: 3,
+        name: 'Arcadia TrueBeam',
+        energy: ['6X', '10X', '15X']}
       ],
      wedges: ['10','15','20','25','30','45','60'],
      poc_position: 0.0,
@@ -30,11 +31,20 @@ computed: {
     var b_1 = 0.09054;
     var w_60 = Math.tan( Math.PI * this.tx_wedge / 180.0 ) / Math.tan( Math.PI / 3.0);
     var w_open = 1.0 - w_60;
-    if (this.tx_energy == '10X')
+    if (this.tx_energy != '6X')
     {
-      a_0 = -0.0708;
-      a_1 = 1.1977;
-      b_1 = 0.07607;
+      if (this.tx_machine.name == 'Arcadia TrueBeam')
+      {
+        a_0 = -0.0708;
+        a_1 = 1.1977;
+        b_1 = 0.07607;
+      }
+      else
+      {
+        a_0 = -0.0818;
+        a_1 = 1.1968;
+        b_1 = 0.07054;
+      }
     }
     var t_1 = w_open * (a_0 + a_1);
     var t_2 = w_60 * (a_0 + a_1 * Math.exp(b_1 * this.poc_position));
