@@ -89,6 +89,9 @@
                     id='myIMRTwafer'>
           </wafer-imrt>
         </div>
+        <div v-show="showWAFER === 3">
+          <wafer-edwf></wafer-edwf>
+        </div>
         <div v-show="showWAFER === 0">
           <table>
             <tr>
@@ -98,12 +101,16 @@
               <td>
                   <button @click="showWAFER=2">IMRT QA Report</button>
               </td>
+              <td>
+                  <button @click="showWAFER=3">EDW Output Factor</button>
+              </td>
             </tr>
           </table>
         </div>
 
       </div>
       <script src='js/utilities.js'></script>
+      <script src='js/waferEDWF.js'></script>
       <script src='js/waferIMRT.js'></script>
       <script src='js/waferSPC.js'></script>
       <script src="js/main.js"></script>
