@@ -165,11 +165,11 @@ Vue.component('wafer-muc', {
           </tr>
           <tr>
             <td>Prescription Dose per Fraction (cGy)</td>
-            <td><input v-model="fx_dose" placeholder="Enter Fractional Rx Dose"></td>
+            <td><input type="number" v-model.number="fx_dose" placeholder="Enter Fractional Rx Dose"></td>
           </tr>
           <tr>
             <td>Prescription Isodose Line</td>
-            <td><input type="number" v-model="rx_isodose" placeholder="Enter %IDL"></td>
+            <td><input type="number" v-model.number="rx_isodose" placeholder="Enter %IDL"></td>
           </tr>
           <tr>
             <td>Plan Check Date</td>
@@ -183,18 +183,23 @@ Vue.component('wafer-muc', {
       </fieldset>
       <hr>
       <p>&nbsp;</p>
-
     </div>
 
     <report-header rh_title="MU Calculation Worksheet"></report-header>
-
     <p>&nbsp;</p>
-    <two-column-row tcr_label="Patient Name:" v-bind:tcr_value="w_patient"></two-column-row>
-    <two-column-row tcr_label="MRN:" v-bind:tcr_value="w_mrn"></two-column-row>
-    <two-column-row tcr_label="Prescription:" v-bind:tcr_value="fx_dose"></two-column-row>
-    <two-column-row tcr_label="% IDL:" v-bind:tcr_value="rx_isodose"></two-column-row>
-    <hr>
-    <p style="clear:both">&nbsp;</p>
+    <four-column-row
+        tcr_label="Patient Name:"
+        v-bind:tcr_value="w_patient"
+        tcr_label_2="MRN:"
+        v-bind:tcr_value_2="w_mrn">
+    </four-column-row>
+    <four-column-row
+        tcr_label="Prescription:"
+        v-bind:tcr_value="fx_dose + 'cGy'"
+        tcr_label_2="% IDL:"
+        v-bind:tcr_value_2="rx_isodose + '%'">
+    </four-column-row>
+    <hr style="clear:both">
     <p>
       <span style="width:13%;float:left">
         <table class="muc_header">

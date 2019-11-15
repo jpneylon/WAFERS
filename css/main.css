@@ -92,7 +92,7 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 25%;
 }
 
 .column {
@@ -101,9 +101,22 @@ img {
   font-size: 12px;
 }
 
+.column_x4 {
+  float: left;
+  width: 20%;
+  font-size: 12px;
+}
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }

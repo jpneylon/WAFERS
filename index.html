@@ -56,71 +56,82 @@
           <p>&nbsp;</p>
         </div>
 
-        <div v-show="showWAFER > 0">
-          <table class="no-print">
-            <tr>
-              <td>
-                <button onclick="window.print()">Print Report</button>
-              </td>
-              <td>
-                <button @click="showWAFER=0">Back to WAFERS</button>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <div v-show="showWAFER === 1">
-          <wafer-spc
-                    :w_patient="patient"
-                    :w_mrn="mrn"
-                    :w_physician="physician"
-                    :w_physicist="physicist"
-                    :w_rxdate="rxdate"
-                    :w_txdate="txdate"
-                    id='mySPCwafer'>
-          </wafer-spc>
-        </div>
-        <div v-show="showWAFER === 2">
-          <wafer-imrt
-                    :w_patient="patient"
-                    :w_mrn="mrn"
-                    :w_physicist="physicist"
-                    :w_txdate="txdate"
-                    id='myIMRTwafer'>
-          </wafer-imrt>
-        </div>
-        <div v-show="showWAFER === 3">
-          <wafer-edwf></wafer-edwf>
-        </div>
-        <div v-show="showWAFER === 4">
-          <wafer-muc
-                    :w_patient="patient"
-                    :w_mrn="mrn"
-                    :w_physicist="physicist"
-                    :w_txdate="txdate"
-                    id='myMUCwafer'>
-          </wafer-muc>
-        </div>
-        <div v-show="showWAFER === 0">
-          <table>
-            <tr>
-              <td>
-                  <button @click="showWAFER=1">Special Physics Report</button>
-              </td>
-              <td>
-                  <button @click="showWAFER=2">IMRT QA Report</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <button @click="showWAFER=4">MU Calculation</button>
-              </td>
-              <td>
-                  <button @click="showWAFER=3">EDW Output Factor</button>
-              </td>
-            </tr>
-          </table>
-        </div>
+        <transition name="fade">
+          <div v-show="showWAFER > 0">
+            <table class="no-print">
+              <tr>
+                <td>
+                  <button onclick="window.print()">Print Report</button>
+                </td>
+                <td>
+                  <button @click="showWAFER=0">Back to WAFERS</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </transition>
+        <transition name="fade">
+          <div v-show="showWAFER === 1">
+            <wafer-spc
+                      :w_patient="patient"
+                      :w_mrn="mrn"
+                      :w_physician="physician"
+                      :w_physicist="physicist"
+                      :w_rxdate="rxdate"
+                      :w_txdate="txdate"
+                      id='mySPCwafer'>
+            </wafer-spc>
+          </div>
+        </transition>
+        <transition name="fade">
+          <div v-show="showWAFER === 2">
+            <wafer-imrt
+                      :w_patient="patient"
+                      :w_mrn="mrn"
+                      :w_physicist="physicist"
+                      :w_txdate="txdate"
+                      id='myIMRTwafer'>
+            </wafer-imrt>
+          </div>
+        </transition>
+        <transition name="fade">
+          <div v-show="showWAFER === 3">
+            <wafer-edwf></wafer-edwf>
+          </div>
+        </transition>
+        <transition name="fade">
+          <div v-show="showWAFER === 4">
+            <wafer-muc
+                      :w_patient="patient"
+                      :w_mrn="mrn"
+                      :w_physicist="physicist"
+                      :w_txdate="txdate"
+                      id='myMUCwafer'>
+            </wafer-muc>
+          </div>
+        </transition>
+        <transition name="fade">
+          <div v-show="showWAFER === 0">
+            <table>
+              <tr>
+                <td>
+                    <button @click="showWAFER=1">Special Physics Report</button>
+                </td>
+                <td>
+                    <button @click="showWAFER=2">IMRT QA Report</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <button @click="showWAFER=4">MU Calculation</button>
+                </td>
+                <td>
+                    <button @click="showWAFER=3">EDW Output Factor</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </transition>
 
       </div>
       <script src='js/utilities.js'></script>
