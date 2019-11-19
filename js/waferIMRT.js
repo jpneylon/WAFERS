@@ -167,12 +167,6 @@ Vue.component('wafer-imrt', {
           </td>
         </tr>
         <tr>
-          <td>TPS Calculated Mean Dose to the Chamber (Gy)</td>
-          <td><input v-model="tps_dose" placeholder="Enter TPS Dose"></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
           <td>Ion Chamber</td>
           <td>
             <select v-model="qa_chamber" placeholder="Select the Ion Chamber">
@@ -182,8 +176,7 @@ Vue.component('wafer-imrt', {
                 </option>
             </select>
           </td>
-          <td>Cumulative Ion Chamber Reading (nC)</td>
-          <td><input v-model="qa_measurement" placeholder="Enter Electrometer Reading"></td>
+          <td colspan='2'></td>
         </tr>
         <tr>
           <td>
@@ -197,6 +190,16 @@ Vue.component('wafer-imrt', {
         <tr>
           <td>Enter Any Additional Comments To Be Included In The Report</td>
           <td colspan='3'><input v-model="comments" placeholder="Enter Comments" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td>TPS Calculated Mean Dose to the Chamber (Gy)</td>
+          <td><input v-model="tps_dose" placeholder="Enter TPS Dose"></td>
+          <td colspan='2'></td>
+        </tr>
+        <tr>
+          <td>Cumulative Ion Chamber Reading (nC)</td>
+          <td><input v-model="qa_measurement" placeholder="Enter Electrometer Reading"></td>
+          <td colspan='2'></td>
         </tr>
       </table>
       </fieldset>
