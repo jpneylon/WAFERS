@@ -82,7 +82,7 @@ Vue. component('wafer-diode', {
                 'Treatment Plan SSD (cm)',
                 'MUC Calculated MU',
                 'MUC Diode Dose (cGy)',
-                'Tx Diode SSD',
+                'Tx Diode SSD (cm)',
                 'Tx Diode Reading'],
       energies: [
         {name:'6X',mu:'200',rdg:'385'},
