@@ -76,8 +76,8 @@ Vue. component('wafer-diode', {
       field_counter: 1,
       headers: ['Field',
                 'Beam Energy',
-                // 'Daily Diode MU',
-                // 'Daily Diode Reading',
+                'Daily Diode MU',
+                'Daily Diode Reading',
                 'Treatment Plan MU',
                 'Treatment Plan SSD (cm)',
                 'MUC Calculated MU',
@@ -166,8 +166,8 @@ Vue. component('wafer-diode', {
             <th v-for="item in headers"><strong>{{ item }}</strong></th>
           </tr>
           <tr v-for="field in fields">
-            <td style="width:6%"><strong><input v-model="field.id" type="number"></strong></td>
-            <td style="width:9%">
+            <td style="width:5%"><strong><input v-model="field.id" type="number"></strong></td>
+            <td style="width:7%">
               <select v-model="field.energy" @change="setDailies(field)" placeholder="Select Beam Energy">
                   <option disabled value="">Select Beam Energy</option>
                   <option v-for="ex in energies" v-bind:value="ex.name">
@@ -175,14 +175,14 @@ Vue. component('wafer-diode', {
                   </option>
               </select>
             </td>
-            <!-- <td><input v-model="field.daily_mu" type="number" placeholder="Enter Daily Delivered MU"></td>
-            <td><input v-model="field.daily_rdg" type="number" placeholder="Enter Daily Diode Reading"></td> -->
-            <td style="width:15%"><input v-model="field.tps_mu" type="number" placeholder="Enter Tx Plan MU"></td>
-            <td style="width:15%"><input v-model="field.tps_ssd" type="number" placeholder="Enter Tx Plan SSD (cm)"></td>
-            <td style="width:15%"><input v-model="field.muc_mu" type="number" placeholder="Enter MUC Calc'd MU "></td>
-            <td style="width:15%"><input v-model="field.muc_diode" type="number" placeholder="Enter MUC Diode Dose (cGy)"></td>
-            <td style="width:15%"><input v-model="field.tx_ssd" type="number" placeholder="Enter Delivered SSD (cm)"></td>
-            <td style="width:15%"><input v-model="field.tx_rdg" type="number" placeholder="Enter Delivered Diode Reading"></td>
+            <td style="width:11%><input v-model="field.daily_mu" type="number" placeholder="Enter Daily Delivered MU"></td>
+            <td style="width:11%><input v-model="field.daily_rdg" type="number" placeholder="Enter Daily Diode Reading"></td>
+            <td style="width:11%"><input v-model="field.tps_mu" type="number" placeholder="Enter Tx Plan MU"></td>
+            <td style="width:11%"><input v-model="field.tps_ssd" type="number" placeholder="Enter Tx Plan SSD (cm)"></td>
+            <td style="width:11%"><input v-model="field.muc_mu" type="number" placeholder="Enter MUC Calc'd MU "></td>
+            <td style="width:11%"><input v-model="field.muc_diode" type="number" placeholder="Enter MUC Diode Dose (cGy)"></td>
+            <td style="width:11%"><input v-model="field.tx_ssd" type="number" placeholder="Enter Delivered SSD (cm)"></td>
+            <td style="width:11%"><input v-model="field.tx_rdg" type="number" placeholder="Enter Delivered Diode Reading"></td>
           </tr>
         </table>
       </fieldset>
