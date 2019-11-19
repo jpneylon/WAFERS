@@ -175,8 +175,8 @@ Vue. component('wafer-diode', {
                   </option>
               </select>
             </td>
-            <td style="width:11%><input v-model="field.daily_mu" type="number" placeholder="Enter Daily Delivered MU"></td>
-            <td style="width:11%><input v-model="field.daily_rdg" type="number" placeholder="Enter Daily Diode Reading"></td>
+            <td style="width:11%"><input v-model="field.daily_mu" type="number" placeholder="Enter Daily Delivered MU"></td>
+            <td style="width:11%"><input v-model="field.daily_rdg" type="number" placeholder="Enter Daily Diode Reading"></td>
             <td style="width:11%"><input v-model="field.tps_mu" type="number" placeholder="Enter Tx Plan MU"></td>
             <td style="width:11%"><input v-model="field.tps_ssd" type="number" placeholder="Enter Tx Plan SSD (cm)"></td>
             <td style="width:11%"><input v-model="field.muc_mu" type="number" placeholder="Enter MUC Calc'd MU "></td>
