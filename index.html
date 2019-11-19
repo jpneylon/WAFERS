@@ -92,6 +92,9 @@
         <div v-show="showWAFER === 3">
           <wafer-edwf></wafer-edwf>
         </div>
+        <div v-show="showWAFER === 4">
+          <wafer-diode></wafer-diode>
+        </div>
         <div v-show="showWAFER === 0">
           <table>
             <tr>
@@ -101,8 +104,13 @@
               <td>
                   <button @click="showWAFER=2">IMRT QA Report</button>
               </td>
+            </tr>
+            <tr>
               <td>
                   <button @click="showWAFER=3">EDW Output Factor</button>
+              </td>
+              <td>
+                  <button @click="showWAFER=4">In-Vivo Diode Check</button>
               </td>
             </tr>
           </table>
@@ -113,6 +121,7 @@
       <script src='js/waferEDWF.js'></script>
       <script src='js/waferIMRT.js'></script>
       <script src='js/waferSPC.js'></script>
+      <script src='js/waferDIODE.js'></script>
       <script src="js/main.js"></script>
     </body>
 </html>
