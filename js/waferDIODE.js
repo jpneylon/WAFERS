@@ -4,8 +4,8 @@ Vue.component('wafer-diode-print', {
   props: {
     p_counter: Number,
     p_title: String,
-    p_energies: Object,
-    p_fields: Object
+    p_energies: Array,
+    p_fields: Array
   },
   computed: {
     column_width: function() {
@@ -47,8 +47,8 @@ Vue.component('wafer-diode-print', {
     <hr>
     <table style="table-layout: fixed; width: 100%;">
       <tr>
-        <td style={{column_width}}><strong>Field:</strong></td>
-        <td style={{column_width}} v-for="field in p_fields">{{field.id}}</td>
+        <td :style="column_width"><strong>Field:</strong></td>
+        <td :style="column_width" v-for="field in p_fields">{{field.id}}</td>
       </tr>
       <tr>
         <td><strong>MUC Calculated Dose:</strong</td>
