@@ -79,7 +79,7 @@ Vue.component('wafer-spc', {
     <p>MRN: <strong>{{ w_mrn }}</strong></p>
     <p v-for="task in tasks" v-if="task.show">
       <strong>Request:</strong> {{task.request}}<br>
-      &nbsp
+      <br>
       <strong>Purpose:</strong> {{ task.purpose }}<br>
     </p>
     <p>&nbsp;</p>
@@ -89,7 +89,7 @@ Vue.component('wafer-spc', {
     <p>To: <strong>{{ w_physician.firstname }} {{ w_physician.lastname }}, MD</strong></p>
     <p v-for="task in tasks" v-if="task.show">
       <strong>Regarding request:</strong> {{task.request}}<br>
-      &nbsp
+      <br>
       <strong>Actions taken:</strong> {{ task.action }} <br>
     </p>
     <p>&nbsp;</p>
