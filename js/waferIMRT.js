@@ -65,7 +65,7 @@ Vue.component('wafer-imrt', {
         {id: 4,
          model: 'PTW TN30013',
          serial: '011070',
-         factor: 5.526,
+         factor: 5.426,
          units: 'cGy/nC',
          trs483: 1.00},
       ]
