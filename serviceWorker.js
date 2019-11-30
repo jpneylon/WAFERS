@@ -2,18 +2,17 @@ const CACHE_NAME = 'static-cache-v1';
 const DATA_CACHE_NAME = 'data-cache-v1';
 
 const FILES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/css/main.css',
-  '/css/print.css',
-  '/data/cohlogo.jpg',
-  '/data/wafer-200.png',
-  '/js/main.js',
-  '/js/utilities.js',
-  '/js/waferDIODE.js',
-  '/js/waferEDWF.js',
-  '/js/waferIMRT.js',
-  '/js/waferSPC.js',
+  'index.html',
+  'css/main.css',
+  'css/print.css',
+  'data/cohlogo.jpg',
+  'data/wafer-200.png',
+  'js/main.js',
+  'js/utilities.js',
+  'js/waferDIODE.js',
+  'js/waferEDWF.js',
+  'js/waferIMRT.js',
+  'js/waferSPC.js',
 ];
 
 self.addEventListener('install', (evt) => {

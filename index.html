@@ -128,11 +128,11 @@
       <script src='js/waferDIODE.js'></script>
       <script src="js/main.js"></script>
 
-      <script src="/js/install.js"></script>
+      <script src="js/install.js"></script>
       <script>
         if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
+          navigator.serviceWorker.register('serviceWorker.js')
               .then((reg) => {
                 console.log('Service worker registered.', reg);
               });
