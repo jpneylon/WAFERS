@@ -12,26 +12,6 @@ body {
   margin-bottom: 1px;
 }
 
-.header {
-  text-align: center;
-}
-
-.header-button {
-  width: 24px;
-  height: 24px;
-  margin-right: 16px;
-  text-indent: -30000px;
-  opacity: 0.54;
-  border: none;
-  outline: none;
-  cursor: pointer;
-
-  margin: 2px;
-  background-color: white;
-  color: black;
-  font-size: 14px;
-}
-
 .footer {
   position: fixed;
   left: 0;
