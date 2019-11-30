@@ -13,25 +13,23 @@ body {
 }
 
 .header-spacer {
-  width: 25%;
+  width: 45%;
+  height: 30px
   float: left;
 }
 
 .header-h1 {
-  width: 50%;
+  width: 96px;
   float: left;
 }
 
 .header-button {
-  width: 15%;
+  width: 36px;
   float: right;
   opacity: 0.25;
-  border: none;
   outline: none;
   cursor: pointer;
   margin: 2px;
-  background-color: white;
-  color: black;
   font-size: 14px;
 }
 
