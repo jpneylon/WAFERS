@@ -12,6 +12,29 @@ body {
   margin-bottom: 1px;
 }
 
+.header-spacer {
+  width: 25%;
+  float: left;
+}
+
+.header-h1 {
+  width: 50%;
+  float: left;
+}
+
+.header-button {
+  width: 15%;
+  float: right;
+  opacity: 0.25;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 2px;
+  background-color: white;
+  color: black;
+  font-size: 14px;
+}
+
 .footer {
   position: fixed;
   left: 0;
