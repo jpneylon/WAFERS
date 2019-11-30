@@ -7,6 +7,10 @@
         <script src="https://unpkg.com/vuejs-datepicker"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <link rel="stylesheet" type="text/css" media="print" href="css/print.css"/>
+
+        <link rel="manifest" href="/manifest.json">
+        <meta name="description" content="Web Applications For Endlessly Repetitive Stuff">
+        <meta name="theme-color" content="#2F3BA2"/>
    </head>
     <body>
       <div id="app">
@@ -123,5 +127,17 @@
       <script src='js/waferSPC.js'></script>
       <script src='js/waferDIODE.js'></script>
       <script src="js/main.js"></script>
+
+      <script src="/js/install.js"></script>
+      <script>
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+              .then((reg) => {
+                console.log('Service worker registered.', reg);
+              });
+        });
+      }
+      </script>
     </body>
 </html>
