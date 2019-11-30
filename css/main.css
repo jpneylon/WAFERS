@@ -24,12 +24,12 @@ body {
 }
 
 .header-button {
-  width: 36px;
+  width: 72px;
   float: right;
-  opacity: 0.25;
+  opacity: 0.15;
   outline: none;
   cursor: pointer;
-  margin: 2px;
+  margin: 20px;
   font-size: 14px;
 }
 
