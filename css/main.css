@@ -13,13 +13,13 @@ body {
 }
 
 .header-spacer {
-  width: 45%;
-  height: 30px
+  width: 35%;
+  height: 30px;
   float: left;
 }
 
 .header-h1 {
-  width: 96px;
+  width: 30%;
   float: left;
 }
 
