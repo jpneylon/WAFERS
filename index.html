@@ -109,18 +109,18 @@
           <table>
             <tr>
               <td>
-                  <button @click="showWAFER=1">Special Physics Report</button>
+                  <button @click="showWAFER=1,updateTitle('SPC')">Special Physics Report</button>
               </td>
               <td>
-                  <button @click="showWAFER=2">IMRT QA Report</button>
+                  <button @click="showWAFER=2,updateTitle('IMRTQA')">IMRT QA Report</button>
               </td>
             </tr>
             <tr>
               <td>
-                  <button @click="showWAFER=3">EDW Output Factor</button>
+                  <button @click="showWAFER=3,updateTitle('EDWF')">EDW Output Factor</button>
               </td>
               <td>
-                  <button @click="showWAFER=4">In-Vivo Diode Check</button>
+                  <button @click="showWAFER=4,updateTitle('DIODE')">In-Vivo Diode Check</button>
               </td>
             </tr>
           </table>
