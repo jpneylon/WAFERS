@@ -37,7 +37,7 @@ var app = new Vue({
   },
   methods: {
     updateTitle: function(new_title) {
-      document.title = "WAFERS-" + new_title + "-" + this.patient;
+      document.title = "WAFERS-" + new_title + "-" + this.mrn;
     },
     toggleShow: function(showSwitch) {
       if (showSwitch) {
