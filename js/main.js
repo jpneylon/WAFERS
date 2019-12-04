@@ -37,7 +37,7 @@ var app = new Vue({
   },
   methods: {
     updateTitle: function(new_title) {
-      document.title = "WAFERS-" + new_title + "-" + this.mrn;
+      document.title = "WAFERS-" + this.mrn + "-" + new_title;
     },
     toggleShow: function(showSwitch) {
       if (showSwitch) {
