@@ -18,7 +18,7 @@
         <div class="no-print">
           <div>
            <div class="header-spacer"></div>
-           <h1 class="header-h1" title="Web Applications For Endlessly Repetitive Stuff">WAFERS</h1>
+           <h1 class="header-h1" title="Web Applications For Endlessly Repetitive Stuff">{{doctitle}}</h1>
            <button class="header-button" id="butInstall" aria-label="Install" hidden="false">Install</button>
            <!-- <button id="butRefresh" aria-label="Refresh"></button> -->
            </div>
@@ -73,7 +73,7 @@
                 <button onclick="window.print()">Print Report</button>
               </td>
               <td>
-                <button @click="showWAFER=0">Back to WAFERS</button>
+                <button @click="showWAFER=0,resetTitle()">Back to WAFERS</button>
               </td>
             </tr>
           </table>

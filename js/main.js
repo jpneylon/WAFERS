@@ -15,6 +15,7 @@ var app = new Vue({
     physicist: new Object(),
     showHOME: true,
     showWAFER: 0,
+    doctitle: 'WAFERS',
     docs:[
         {id:1,lastname:'Amini',firstname:'Arya'},
         {id:2,lastname:'Chen',firstname:'YiJen'},
@@ -37,7 +38,12 @@ var app = new Vue({
   },
   methods: {
     updateTitle: function(new_title) {
-      document.title = "WAFERS-" + this.mrn + "-" + new_title;
+      this.doctitle = "WAFERS-" + this.mrn + "-" + new_title;
+      document.title = this.doctitle;
+    },
+    resetTitle: function() {
+      this.doctitle = "WAFERS";
+      document.title = this.doctitle;
     },
     toggleShow: function(showSwitch) {
       if (showSwitch) {
