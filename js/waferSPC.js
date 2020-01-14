@@ -47,7 +47,13 @@ Vue.component('wafer-spc', {
         text:'TBI Lung Dose',
         request:'Determining Lung Dose from TBI Electron Boost to Chest Wall',
         purpose:'Please perform a dosimetric calculation on the above patient who will be received chest wall boost to ensure that electron fields match the shape of the lung blocks appropriately and bring the chest wall dose up to the prescribed dose.',
-        action:'Using electron fields matching the shape of the lung blocks, a dosimetric calcualtion on the above patient was performed to ensure taht the chest wall received the prescribed dose. This was accomplished by subtracting the dose given by the blocked x-ray fields from the prescribed dose and determining the appropriate monitor units for the electron fields.'}
+        action:'Using electron fields matching the shape of the lung blocks, a dosimetric calcualtion on the above patient was performed to ensure taht the chest wall received the prescribed dose. This was accomplished by subtracting the dose given by the blocked x-ray fields from the prescribed dose and determining the appropriate monitor units for the electron fields.'},
+       {id:7,
+        show: false,
+        text:'Total Body Electrons',
+        request:'Total Skin Electron Treatment Delivery Verification',
+        purpose:'This patient will receive total skin electron beam (TSEB) treatment. Please verify the accuracy of the treatment delivery.',
+        action:'The patient was treated in a standing position at extended distance from the LINAC source. Multiple proper gantry angles and patient positions were used to deliver uniform dose to the patient skin. A set of dosimeters (nanoDot OSLDs) were placed on the patient skin for verification of delivered dose. The dosimeter readings were analyzed and saved in the patient chart.'}
     ]}
   },
   template: `
